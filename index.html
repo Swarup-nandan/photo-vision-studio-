@@ -132,60 +132,176 @@
 
   /* ===== Hero ===== */
   .hero{
-    position: relative;
-    min-height: 100svh;
-    padding-top: 90px;
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 5% 40px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14,10,11,0.15) 0%,
+      rgba(14,10,11,0.45) 55%,
+      #0e0a0b 97%
+    ),
+    url('bakground picture.jpg');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Hero content */
+.hero-inner{
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 60px;
+}
+
+.hero .eyebrow{
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero .eyebrow::before{
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero p{
+  margin-top: 10px;
+  max-width: 44ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-actions{
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-solid{
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.btn-solid:hover{
+  background: var(--gold-light);
+}
+
+.btn-outline{
+  border-color: rgba(243,236,225,0.4);
+  color: var(--cream);
+}
+
+.btn-outline:hover{
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* Close button */
+.hero-close{
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+}
+
+.scroll-cue{
+  position: absolute;
+  right: 5%;
+  bottom: 26px;
+  writing-mode: vertical-rl;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-cue::after{
+  content: "";
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(var(--gold), transparent);
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  .hero{
+    min-height: 100dvh;
+    padding: 100px 24px 24px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero-inner{
+    max-width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .hero p{
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .hero-actions{
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hero-actions .btn{
+    width: 100%;
+  }
+
+  .hero-close{
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(14,10,11,0.15) 0%,
-        rgba(14,10,11,0.45) 55%,
-        #0e0a0b 97%
-      ),
-      url('bakground picture.jpg');
-
-    background-size: cover;
-    background-position: top center;   /* important fix */
-    background-repeat: no-repeat;
-   }
-  @media (max-width: 768px){
-  .hero{
-    background-size: contain;
-    background-position: center top;
-    background-color: #0e0a0b;
-    padding-top: 100px;
-   }
   }
-  .hero-inner{
-    padding:0 5% 90px; max-width:1200px; width:100%;
-  }
-  .hero .eyebrow{margin-bottom:22px; display:flex; align-items:center; gap:14px;}
-  .hero .eyebrow::before{content:""; width:34px; height:1px; background:var(--gold);}
-  .hero p{
-    margin-top:10px; max-width:44ch; color:var(--muted); font-size:1.02rem; line-height:1.7;
-  }
-  .hero-actions{ display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:15px 30px; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.16em;
-    border-radius:2px; cursor:pointer; border:1px solid transparent;
-  }
-  .btn-solid{ background:var(--gold); color:var(--ink); font-weight:500;}
-  .btn-solid:hover{ background:var(--gold-light);}
-  .btn-outline{ border-color:rgba(243,236,225,0.4); color:var(--cream);}
-  .btn-outline:hover{ border-color:var(--gold); color:var(--gold-light);}
 
   .scroll-cue{
-    position:absolute; right:5%; bottom:26px; writing-mode:vertical-rl;
-    font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);
-    display:flex; align-items:center; gap:10px;
+    display: none;
   }
-  .scroll-cue::after{content:""; width:1px; height:46px; background:linear-gradient(var(--gold), transparent);}
-
+}
   /* ===== Ticker ===== */
   .ticker-wrap{
     background:var(--ink-2); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair);
@@ -328,15 +444,16 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-inner">
-    <div class="eyebrow">Karanjia, Odisha — Available Pan India</div>
-    <p>Capturing weddings, pre-wedding stories, birthdays and celebrations with a cinematic eye — real moments, honestly framed, kept forever.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/7205792603" target="_blank" rel="noopener" class="btn btn-solid">Book on WhatsApp</a>
-      <a href="#gallery" class="btn btn-outline">View Our Work</a>
-    </div>
-  </div>
+  <div class="hero-inner" id="heroInner">
+  <button class="hero-close" id="heroClose">&times;</button>
 
+  <div class="eyebrow">Karanjia, Odisha — Available Pan India</div>
+  <p>Capturing weddings, pre-wedding stories, birthdays and celebrations with a cinematic eye — real moments, honestly framed, kept forever.</p>
+  <div class="hero-actions">
+    <a href="https://wa.me/7205792603" target="_blank" rel="noopener" class="btn btn-solid">Book on WhatsApp</a>
+    <a href="#gallery" class="btn btn-outline">View Our Work</a>
+  </div>
+</div>
 </div>
 </section>
 
@@ -490,19 +607,32 @@
 
   const navToggle = document.getElementById('navToggle');
   const navList = document.getElementById('navList');
+
   navToggle.addEventListener('click', () => {
     const isOpen = navList.classList.toggle('open');
     navToggle.classList.toggle('open', isOpen);
   });
+
   navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     navList.classList.remove('open');
     navToggle.classList.remove('open');
   }));
 
+  // Hero close button
+  document.getElementById('heroClose').addEventListener('click', function () {
+    document.getElementById('heroInner').style.display = 'none';
+  });
+
   const revealEls = document.querySelectorAll('[data-reveal]');
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.15 });
+
   revealEls.forEach(el => io.observe(el));
 </script>
 
